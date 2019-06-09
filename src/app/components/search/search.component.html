@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-12">
+    <input type="text" class="form-control" placeholder="Busqueda" #b (keyup.enter)="buscar(b.value)">
+  </div>
+
+  <div class="col-12" *ngIf="busqueda">
+    <h3>Resultados de busqueda</h3>
+    <div class="card-columns">
+      <div class="card bg-dark text-white animated fadeInDown" *ngFor="let movie of movies">
+        <a [routerLink]="[ '/pelicula', movie.id ]">
+          <img src="https://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}" class="card-img" alt="{{movie.title}}">
+          <div class="card-img-overlay">
+            <h5 class="card-title">{{movie.title}}</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+</div>
